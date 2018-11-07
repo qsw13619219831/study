@@ -4,11 +4,12 @@
 int main(){
 		int a;
 		scanf("%d", &a);
-		int arr[] = { 5,6,45,55,77,88,99,20 };
+		int arr[] = { 5,6,45,55,77,88,99,100 };
 		int lenth = sizeof(arr) / sizeof(int);
 		int left=0;
 		int right=lenth;
 		int mid;
+		int compre;
 		for (;;){
 			mid = (left + right) / 2;
 			if (arr[mid] == a){
@@ -16,11 +17,17 @@ int main(){
 				break;
 			}
 			else if (arr[mid] < a){
-				printf("小了，在右边\n");
+				if (left == mid){
+					printf("没这个数\n");
+					break;
+				}
 				left = mid;
 			}
 			else {
-				printf("大了，在左边\n");
+				if (right == mid){
+					printf("没这个数\n");
+					break;
+				}
 				right = mid;
 			}
 		}
